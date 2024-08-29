@@ -18,10 +18,10 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
-      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1">
+    <div className="w-screen h-screen flex items-center justify-center">
+      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:bg-slate-800">
         <div className="flex justify-center">
-          <h1 className="font-bold text-[35px] text-gray-800">Forgot Password</h1>
+          <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-300">Forgot Password</h1>
         </div>
 
         <form

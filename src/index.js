@@ -21,13 +21,15 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import ProtectedRoute from './components/ProtectedRoute'
+import Layout from './components/Profile/Layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements( 
       < >
-         <Route exact path='/' element={<Login/>} />
-         <Route exact path='/forgotPassword' element={<ForgotPassword/>}/>
-         <Route exact path='/register' element={<Register/>} />
+         {/* <Route exact path='/' element={<Login/>} /> */}
+         <Route exact path='/' element={<Layout children={<Login/>}/>} />
+         <Route exact path='/forgotPassword' element={<Layout children={<ForgotPassword/>}/>}/>
+         <Route exact path='/register' element={<Layout children={<Register/>}/>} />
          <Route exact path='/dashboard' element={<ProtectedRoute element={<Dashboard/>}/>}> 
                <Route path='' element={<Navigate to={'activeRide'}/>}/>
                <Route path='activeRide' element={<ActiveRide/>}/>

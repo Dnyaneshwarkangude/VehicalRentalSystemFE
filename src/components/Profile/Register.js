@@ -42,10 +42,10 @@ const Register = () => {
       });
   }; 
   return (
-    <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
-      <div className="px-9 py-4 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1">
+    <div className="w-screen h-screen  flex items-center justify-center">
+      <div className="px-9 py-4 border-[3px] rounded-[20px] bg-gray-200 dark:bg-gray-800 shadow-customShadow1">
         <div className="flex justify-center">
-          <h1 className="font-bold text-[35px] text-gray-800">Register</h1>
+          <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-200">Register</h1>
         </div>
 
         <form
@@ -197,7 +197,7 @@ const Register = () => {
           </h3>
         </div>
 
-        <div className="text-gray-500 flex text-center flex-col mt-4 items-center text-sm">
+        <div className="text-gray-500 flex text-center flex-col mt-4 items-center text-sm dark:text-slate-200">
           <p className="cursor-default">
             By registering, you agree to our
             <a

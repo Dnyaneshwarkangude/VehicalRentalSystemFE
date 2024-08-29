@@ -52,10 +52,11 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
-      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1">
+    // <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
+    <div className="w-screen h-screen bg-gray-30 flex items-center justify-center">
+      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:bg-gray-800 dark:text-slate-300">
         <div className="flex justify-center">
-          <h1 className="font-bold text-[35px] text-gray-800">Login</h1>
+          <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-200">Login</h1>
         </div>
 
         <form
@@ -142,7 +143,7 @@ const Login = () => {
         >
           <button
             href="#"
-            className="hover:scale-105 ease-in-out duration-300 shadow-lg p-2 rounded-lg m-1"
+            className="hover:scale-105 ease-in-out duration-300 shadow-lg p-2 rounded-lg m-1 dark:bg-slate-400"
           >
             <img
               className="max-w-[25px]"
@@ -152,7 +153,7 @@ const Login = () => {
           </button>
           <button
             href="#"
-            className="hover:scale-105 ease-in-out duration-300 shadow-lg p-2 rounded-lg m-1"
+            className="hover:scale-105 ease-in-out duration-300 shadow-lg p-2 rounded-lg m-1 dark:bg-slate-400"
           >
             <img
               className="max-w-[25px]"
@@ -161,7 +162,7 @@ const Login = () => {
             />
           </button>
         </div>
-        <div className="text-gray-500 flex text-center flex-col mt-4 items-center text-sm">
+        <div className="text-gray-500 flex text-center flex-col mt-4 items-center text-sm dark:text-slate-300">
           <p className="cursor-default">
             By signing in, you agree to our
             <a
