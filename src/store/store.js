@@ -6,6 +6,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 
 import userReducer from "./userSlice";
 import authReducer from "./authSlice";
+import darkModeReducer from "./darkModeSlice"
 
 
 // Encryption transformer
@@ -21,13 +22,14 @@ const persistConfig = {
   key: "root",
   storage,
   transforms: [encryptor],
-  whitelist: ["user", "auth"], // List slices you want to persist
+  whitelist: ["user", "auth", "darkMode"], // List slices you want to persist
 };
 
 // Combine all reducers
 const rootReducer = combineReducers({
   user: userReducer,
   auth : authReducer,
+  darkMode: darkModeReducer
 });
 
 // Create a persisted reducer

@@ -43,7 +43,7 @@ const Register = () => {
   }; 
   return (
     <div className="w-screen h-screen  flex items-center justify-center">
-      <div className="px-9 py-4 border-[3px] rounded-[20px] bg-gray-200 dark:bg-gray-800 shadow-customShadow1">
+      <div className="px-9 py-4 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor">
         <div className="flex justify-center">
           <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-200">Register</h1>
         </div>
@@ -64,7 +64,7 @@ const Register = () => {
               </label>
               <input
                 id="firstName"
-                className="border bg-gray-50 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 p-3 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
+                className="border bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 p-3 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
                 type="text"
                 placeholder="First Name"
                 required
@@ -90,7 +90,7 @@ const Register = () => {
               </label>
               <input
                 id="lastName"
-                className="border bg-gray-50 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 p-3 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
+                className="border bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 p-3 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
                 type="text"
                 placeholder="Last Name"
                 required
@@ -114,7 +114,7 @@ const Register = () => {
             </label>
             <input
               id="email"
-              className="border bg-gray-50 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 p-3 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
+              className="border bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 p-3 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
               type="email"
               placeholder="Email"
               required
@@ -138,7 +138,7 @@ const Register = () => {
             </label>
             <input
               id="password"
-              className="border bg-gray-50 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 p-3 mb-2 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
+              className="border bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 p-3 mb-2 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
               type="password"
               placeholder="Password"
               required
@@ -165,7 +165,7 @@ const Register = () => {
             </label>
             <input
               id="confirmPassword"
-              className="border bg-gray-50 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 p-3 mb-2 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
+              className="border bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 p-3 mb-2 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
               type="password"
               placeholder="Confirm Password"
               required

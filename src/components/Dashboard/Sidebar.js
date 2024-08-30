@@ -14,7 +14,7 @@ function Sidebar() {
 
   return (
     <aside
-      className="rounded-lg shadow-customShadow bg-gray-200 hover:bg-gra-300
+      className="rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor hover:bg-gra-300
      h-[625px] w-[180px] left-2 top-2 flex flex-col"
     >
       <h1 className="text-[20px] font-bold mt-3 ml-2 py-1 px-3 w-[160px] bg-red-100 rounded-lg shadow-customShadow">

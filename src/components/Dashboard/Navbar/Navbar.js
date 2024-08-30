@@ -14,7 +14,7 @@ const Navbar = () => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   }
   return (
-    <nav className="h-16 rounded-lg shadow-customShadow bg-gray-200 hover:bg-gra-300 flex justify-between">
+    <nav className="h-16 rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor hover:bg-gra-300 flex justify-between">
       <div className="flex">
         {isNewRideActive && (
           <div className="flex items-center">
@@ -49,7 +49,7 @@ const Navbar = () => {
           <DarkMode />
         </div>
         <div className="mr-4">
-          <div className="bg-red-300 hover:bg-red-400 w-[55px] h-[55px] mr-2 rounded-full p-[12px] shadow-customShadow hover:cursor-pointer">
+          <div className="bg-red-300 hover:bg-red-400 w-[55px] h-[55px] mr-2 rounded-full p-[12px] shadow-customShadow dark:shadow-lg hover:cursor-pointer">
             <img src={profile} className=" h-10" />
           </div>
         </div>

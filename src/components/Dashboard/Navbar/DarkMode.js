@@ -1,21 +1,21 @@
 import { useEffect } from "react";
-import { darkModeToggle } from "../../../store/userSlice";
+import { darkModeToggle } from "../../../store/darkModeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const DarkMode = () => { 
-  const darkMode = useSelector(state => state.user.darkMode);
+  const darkMode = useSelector(state => state.darkMode.darkModeState);
   const dispatch = useDispatch();
 
   const toggle = () => { 
-    dispatch(darkModeToggle());
-    if(darkMode){
-        document.body.classList.toggle("dark");
-    }
+    dispatch(darkModeToggle()); 
   };
 
   useEffect(()=>{
     if(darkMode){
-        document.body.classList.toggle("dark");
+        document.body.classList.add("dark");
+    }
+    else{
+      document.body.classList.remove("dark");
     }
   },[darkMode])
 
@@ -24,7 +24,7 @@ const DarkMode = () => {
       class={`${
         darkMode ? "bg-slate-700 hover:bg-gray-600" : "bg-slate-100 hover:bg-gray-300"
       } w-12 h-12 rounded-md flex items-center justify-center`}
-      onClick={() => toggle()}
+      onClick={toggle}
     >
       {darkMode ? (
         <span className="w-6 h-6">

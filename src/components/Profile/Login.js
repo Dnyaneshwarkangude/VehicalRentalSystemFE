@@ -54,7 +54,7 @@ const Login = () => {
   return (
     // <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
     <div className="w-screen h-screen bg-gray-30 flex items-center justify-center">
-      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:bg-gray-800 dark:text-slate-300">
+      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor dark:text-slate-300">
         <div className="flex justify-center">
           <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-200">Login</h1>
         </div>
@@ -70,8 +70,8 @@ const Login = () => {
               Email
             </label>
             <input
-              id="email"
-              className="border p-3  bg-gray-50 dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
+              id="email" 
+              className="border p-3  bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
               type="email"
               placeholder="Email"
               required
@@ -95,7 +95,7 @@ const Login = () => {
             </label>
             <input
               id="password"
-              className="border p-3 bg-gray-50 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
+              className="border p-3 bg-gray-50 shadow-md dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
               type="password"
               placeholder="Password"
               required
@@ -128,7 +128,7 @@ const Login = () => {
               className="group text-blue-400 transition-all duration-100 ease-in-out"
             >
               <span className="bg-left-bottom bg-gradient-to-r from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out m-2">
-                Sign Up
+                Register
               </span>
             </Link>
           </h3>

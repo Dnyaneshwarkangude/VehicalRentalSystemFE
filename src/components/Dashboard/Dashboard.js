@@ -5,16 +5,16 @@ import Navbar from "./Navbar/Navbar";
 
 const Dashboard = () => { 
   return ( 
-    <div className="flex mt-2 ml-1 mr-2">
-      <div className="">
+    <div className="flex h-screen w-screen dark:bg-custombgBlack">
+      <div className="mt-2 ml-1">
         <Sidebar />
       </div>
 
-      <div className="ml-2 flex-grow"> 
+      <div className="ml-2 mt-2 mr-1 flex-grow"> 
         <div className="">
           <Navbar/>
         </div> 
-        <div className="rounded-lg shadow-customShadow bg-gray-200 h-[550px] flex-grow mt-2.5 px-2 py-1">
+        <div className="rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor h-[550px] flex-grow mt-2.5 px-2 py-1">
           <div className="">
             <Outlet />
           </div>
