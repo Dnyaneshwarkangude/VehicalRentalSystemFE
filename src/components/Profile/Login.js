@@ -7,9 +7,18 @@ import { login } from "../../store/userSlice";
 import { updateAccessToken } from "../../store/authSlice";
 import { useDispatch } from "react-redux";
 
+import hide from './assets/hide.png'
+import show from './assets/show.png'
+import { useState } from "react";
+
 const Login = () => { 
   const navigate = useNavigate(); 
   const dispatch = useDispatch();
+
+  const [isHidePassword , setIsHidePassword] = useState(true);
+  const togglePasswordVisibility = () =>{
+    setIsHidePassword(!isHidePassword);
+  }
 
   const {
     register,
@@ -54,7 +63,7 @@ const Login = () => {
   return (
     // <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
     <div className="w-screen h-screen bg-gray-30 flex items-center justify-center">
-      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor dark:text-slate-300">
+      <div className="px-16 py-12 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor dark:text-slate-300">
         <div className="flex justify-center">
           <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-200">Login</h1>
         </div>
@@ -86,7 +95,7 @@ const Login = () => {
               <p className="text-red-500 text-[14px]">{errors.email.message}</p>
             )}
           </div>
-          <div className="text-left">
+          <div className="text-left relative">
             <label
               htmlFor="password"
               className="mb-2 dark:text-gray-400 text-lg"
@@ -96,18 +105,25 @@ const Login = () => {
             <input
               id="password"
               className="border p-3 bg-gray-50 shadow-md dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
-              type="password"
+              type={isHidePassword ? 'password' : ''}
               placeholder="Password"
               required
               {...register("password", {})}
-            />
+              
+            >
+            </input>
+            <spam className="absolute right-5 top-[42px] hover:cursor-pointer"
+            onClick={togglePasswordVisibility}
+            >
+              <img src={isHidePassword ? hide : show} className="w-6 h-6"/>
+            </spam>
           </div>
           <Link
             to={"/forgotPassword"}
             className="group text-blue-400 transition-all duration-100 ease-in-out"
             href="#"
           >
-            <div className="text-right">
+            <div className="textspam inline-block">
               <span className="bg-left-bottom bg-gradient-to-r text-sm from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                 Forget your password?
               </span>

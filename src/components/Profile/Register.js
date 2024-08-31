@@ -3,8 +3,17 @@ import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
+import hide from './assets/hide.png'
+import show from './assets/show.png'
+
 const Register = () => {
   const navigate = useNavigate();
+
+  const [isHidePassword , setIsHidePassword] = useState(true);
+  const togglePasswordVisibility = () =>{
+    setIsHidePassword(!isHidePassword);
+  }
+
   const {
     register,
     handleSubmit,
@@ -154,9 +163,9 @@ const Register = () => {
               <p className="text-red-500 text-[14px]">
                 {errors.password.message}
               </p>
-            )}
+            )} 
           </div>
-          <div className="text-left">
+          <div className="text-left relative">
             <label
               htmlFor="confirmPassword"
               className="mb-2 dark:text-gray-400 text-lg"
@@ -166,11 +175,16 @@ const Register = () => {
             <input
               id="confirmPassword"
               className="border bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 p-3 mb-2 shadow-md placeholder:text-base border-gray-300 rounded-lg w-full focus:scale-105 ease-in-out duration-300"
-              type="password"
+              type={isHidePassword ? 'password' : ''}
               placeholder="Confirm Password"
               required
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <spam className="absolute right-5 top-[42px] hover:cursor-pointer"
+            onClick={togglePasswordVisibility}
+            >
+              <img src={isHidePassword ? hide : show} className="w-6 h-6"/>
+            </spam>
           </div>
           <button
             className="bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg mt-6 p-2 text-white rounded-lg w-full hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out"
