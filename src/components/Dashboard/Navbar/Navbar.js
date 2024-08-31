@@ -14,16 +14,16 @@ const Navbar = () => {
     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   }
   return (
-    <nav className="h-16 rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor hover:bg-gra-300 flex justify-between">
+    <nav className="h-16 rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow1 dark:bg-customBoxColor hover:bg-gra-300 flex justify-between">
       <div className="flex">
         {isNewRideActive && (
           <div className="flex items-center">
             <NavLink
               to={"newRide/newrideform"}
               className={({ isActive }) => `${
-                isActive ? "shadow-customShadow" : ""
+                isActive ? "shadow-customShadow border border-gray-300 dark:shadow-customDarkShadow1" : ""
               }        hover:shadow-customShadow bg-gray-100 rounded-md py-2 px-3 ml-16
-                w-[150px] h-[43px] text-center border border-gray-300`}
+                w-[150px] h-[43px] text-center dark:bg-gray-600 dark:text-slate-200 dark:border-none dark:hover:shadow-customDarkShadow1`}
             >
               New Ride
             </NavLink>
@@ -31,9 +31,9 @@ const Navbar = () => {
             <NavLink
               to={"newRide/qrform"}
               className={({ isActive }) => `${
-                isActive ? "shadow-customShadow" : ""
+                isActive ? "shadow-customShadow  border border-gray-300 dark:shadow-customDarkShadow1" : ""
               } hover:shadow-customShadow bg-gray-100 rounded-md py-2 px-3 ml-7
-                w-[150px] h-[43px] text-center border border-gray-300`}
+                w-[150px] h-[43px] text-center dark:bg-gray-600 dark:text-slate-200 dark:border-none dark:hover:shadow-customDarkShadow1`}
             >
               QR Code Forms
             </NavLink>
@@ -45,11 +45,11 @@ const Navbar = () => {
         {/* <span className="  font-semibold mr-4"> 
             Welcome {capitalizeFirstLetter(userData?.firstName)} {capitalizeFirstLetter(userData?.lastName)}
           </span> */}
-        <div className="mr-4">
+        <div className="mr-4 rounded-lg shadow-md dark:shadow-customDarkShadow1">
           <DarkMode />
         </div>
         <div className="mr-4">
-          <div className="bg-red-300 hover:bg-red-400 w-[55px] h-[55px] mr-2 rounded-full p-[12px] shadow-customShadow dark:shadow-lg hover:cursor-pointer">
+          <div className="bg-red-300 hover:bg-red-400 w-[55px] h-[55px] mr-2 rounded-full p-[12px] shadow-md dark:shadow-lg hover:cursor-pointer">
             <img src={profile} className=" h-10" />
           </div>
         </div>

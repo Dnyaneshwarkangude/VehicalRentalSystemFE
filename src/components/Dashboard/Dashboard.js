@@ -10,11 +10,11 @@ const Dashboard = () => {
         <Sidebar />
       </div>
 
-      <div className="ml-2 mt-2 mr-1 flex-grow"> 
+      <div className="ml-2 mt-2 mr-1 w-full"> 
         <div className="">
           <Navbar/>
         </div> 
-        <div className="rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor h-[550px] flex-grow mt-2.5 px-2 py-1">
+        <div className="rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor h-[550px] mt-2.5 px-2 py-1">
           <div className="">
             <Outlet />
           </div>
