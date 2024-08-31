@@ -19,9 +19,11 @@ const ForgotPassword = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <div className="p-7 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor">
-        <div className="flex justify-center">
-          <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-300">Forgot Password</h1>
+      <div className="px-16 py-16 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor">
+        <div className="flex justify-center flex-col">
+          <h1 className="font-bold text-[30px] text-gray-800 dark:text-slate-300">Forgot your password?</h1>
+          <p className='dark:text-slate-300 mt-2'>Don't worry! Just enter your email and we will send you a link to</p>
+          <p className='dark:text-slate-300'>reset your password.</p>
         </div>
 
         <form
@@ -32,11 +34,11 @@ const ForgotPassword = () => {
         >
           <div className="text-left">
             <label htmlFor="email" className="mb-2 dark:text-gray-400 text-lg">
-              Email
+              Your Email
             </label>
             <input
               id="email"
-              className="border p-3 bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
+              className=" border p-3 bg-gray-50 dark:bg-gray-600 dark:text-gray-300 dark:border-gray-700 shadow-md placeholder:text-base focus:scale-105 ease-in-out duration-300 border-gray-300 rounded-lg w-full"
               type="email"
               placeholder="Enter your email"
               value={email}
@@ -48,14 +50,14 @@ const ForgotPassword = () => {
             <p className="text-green-500 text-center text-[14px]">{message}</p>
           )}
           <button
-            className="bg-gradient-to-r dark:text-gray-300 from-blue-500 to-purple-500 shadow-lg mt-6 p-2 text-white rounded-lg w-full hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out"
+            className="bg-gradient-to-r w-[160px] dark:text-gray-300 from-blue-500 to-purple-500 shadow-lg p-2 text-white rounded-lg hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out"
             type="submit"
           >
             Send Reset Link
           </button>
         </form>
 
-        <div className="flex flex-col mt-4 items-center justify-center text-sm">
+        <div className="flex flex-col mt-4 ml-1 text-sm">
           <h3 className="dark:text-gray-300">
             Remember your password?
             <button

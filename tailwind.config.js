@@ -9,7 +9,8 @@ module.exports = {
       boxShadow: {
         'customShadow': '5px 5px 11px #bebebe, -5px -5px 11px #ffffff',
         'customShadow1' : '6px 6px 10px #949494, -6px -6px 10px #ffffff',
-        'customDarkShadow': '10px 10px 8px 0px rgba(0, 0, 0, 0.64)'
+        'customDarkShadow': '10px 10px 8px 0px rgba(0, 0, 0, 0.64)',
+        'customDarkShadow1': '5px 5px 8px 0px rgba(0, 0, 0, 0.64)',
       },
       colors:{
         'custombgBlack': '#292729',

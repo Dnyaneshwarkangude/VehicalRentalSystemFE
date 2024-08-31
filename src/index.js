@@ -12,15 +12,16 @@ import NewRide from './components/Dashboard/NewRide'
 import Setting from './components/Profile/Setting'  
 import NewRideForm from './components/Dashboard/NewRideForm';
 import QRForm from './components/Dashboard/QRForm';
-import Vehicle from './components/Dashboard/Vehicles';
+import Vehicle from './components/Dashboard/Vehicles/Vehicles';
 import ForgotPassword from './components/Profile/ForgotPassword';
-import ErrorPage from './components/ErrorPage';
+import ErrorPage from './components/Pages/ErrorPage';
+import ServerError from './components/Pages/ServerError';
 
 import store, {persistor} from './store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedRoute from './components/Pages/ProtectedRoute'
 import Layout from './components/Profile/Layout';
 
 const router = createBrowserRouter(
@@ -43,7 +44,7 @@ const router = createBrowserRouter(
                <Route path='profile/setting' element={<Setting/>}/>
          </Route>
 
-         <Route path='*' element={<ErrorPage/>}/>
+         <Route path='*' element={<ErrorPage/>}/>  
       </ >
   )
 );
