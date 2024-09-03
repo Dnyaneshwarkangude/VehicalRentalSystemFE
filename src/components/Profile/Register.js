@@ -2,12 +2,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import ErrorPopup from "../Pages/ErrorPopup";
 
 import hide from './assets/hide.png'
-import show from './assets/show.png'
+import show from './assets/show.png' 
 
 const Register = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const [isHidePassword , setIsHidePassword] = useState(true);
   const togglePasswordVisibility = () =>{
@@ -28,11 +29,18 @@ const Register = () => {
     },
   });
 
-  let [confirmPassword, setConfirmPassword] = useState("");
+  let [confirmPassword, setConfirmPassword] = useState(""); 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState(""); 
 
   const onSubmit = (data) => {
-    if (data.password != confirmPassword) {
-      alert("Password and ConfirmPassword do not match!");
+    // if(errors.password){
+      // setModalMessage("Wrong password!");
+      // setIsModalVisible(true);
+    // }
+    if (data.password != confirmPassword) { 
+      setModalMessage("Password and Confirm Password do not match!");
+      setIsModalVisible(true);
       return;
     }
 
@@ -49,9 +57,14 @@ const Register = () => {
       .finally(() => {
         reset();
       });
-  }; 
+  };  
   return (
-    <div className="w-screen h-screen  flex items-center justify-center">
+    <div className="w-screen h-screen  flex items-center justify-center z-100">
+      <ErrorPopup
+        isVisible={isModalVisible}
+        message={modalMessage}
+        onClose={() => setIsModalVisible(false)}
+      />
       <div className="px-9 py-4 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor">
         <div className="flex justify-center">
           <h1 className="font-bold text-[35px] text-gray-800 dark:text-slate-200">Register</h1>
@@ -80,15 +93,16 @@ const Register = () => {
                 {...register("firstName", {
                   pattern: {
                     value: /^[a-zA-Z][a-zA-Z'-]*$/,
-                    message: "*Invalid Name",
+                    message: "*Invalid First Name",
                   },
                 })}
               />
               {errors.firstName && (
                 <p className="text-red-500 text-[14px]">
                   {errors.firstName.message}
-                </p>
-              )}
+                </p> 
+              )} 
+              
             </div>
             <div className="text-left w-[200px] ml-6">
               <label
@@ -159,11 +173,7 @@ const Register = () => {
                 },
               })}
             />
-            {errors.password && (
-              <p className="text-red-500 text-[14px]">
-                {errors.password.message}
-              </p>
-            )} 
+            {errors.password && (<p className="text-red-500 text-[14px]">{errors.password.message}</p>)} 
           </div>
           <div className="text-left relative">
             <label
@@ -233,7 +243,7 @@ const Register = () => {
             </a>
           </p>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };

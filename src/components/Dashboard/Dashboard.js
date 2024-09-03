@@ -14,7 +14,7 @@ const Dashboard = () => {
         <div className="">
           <Navbar/>
         </div> 
-        <div className="rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor h-[550px] mt-2.5 px-2 py-1">
+        <div className="rounded-lg shadow-customShadow bg-gray-200 dark:shadow-customDarkShadow dark:bg-customBoxColor h-[550px] mt-2.5 px-2 py-1 overflow-y-auto">
           <div className="">
             <Outlet />
           </div>

@@ -1,16 +1,13 @@
 import { useState } from "react";
+ 
+import { Outlet, NavLink } from "react-router-dom";
 
-import VehicleForm from "./VehicleForm";
-import AllVehicles from "./AllVehicles";
-
-const Vehicle = () => { 
-  const [selectedType, setSelectedType] = useState('cars');
-  const [isFormVisible, setIsFormVisible] = useState(false);
+const Vehicle = () => {  
+  const [selectedType, setSelectedType] = useState('cars'); 
 
   const handleDropdownChange = (event) => {
     setSelectedType(event.target.value);
-  };
- 
+  }; 
 
   return ( 
     <div className="">
@@ -18,30 +15,27 @@ const Vehicle = () => {
         <select
           value={selectedType}
           onChange={handleDropdownChange}
-          className="bg-white px-2 py-1 rounded-md border-none font-semibold shadow-md hover:cursor-pointer"
+          className="bg-white dark:bg-neutral-500 dark:text-white px-2 py-1 rounded-md border-none font-semibold shadow-md hover:cursor-pointer"
         >
           <option value="Cars">Cars</option>
           <option value="Bikes">Bikes</option>
         </select>
 
-        <button
-          onClick={() => setIsFormVisible(true)}
-          className="bg-white px-3 py-1 ml-12 rounded-md border-none font-semibold shadow-md"
+        <NavLink to={"add-vehicle"} 
+          className="bg-white dark:bg-neutral-500 dark:text-white px-3 py-1 ml-12 rounded-md border-none font-semibold shadow-md"
         >
           Add New Vehicle
-        </button>
+        </NavLink>
 
-        <button
-          onClick={() => setIsFormVisible(false)}
-          className="bg-white px-3 py-1 ml-12 rounded-md border-none font-semibold shadow-md"
+        <NavLink to={"all-vehicles"} 
+          className="bg-white dark:bg-neutral-500 dark:text-white px-3 py-1 ml-12 rounded-md border-none font-semibold shadow-md"
         >
           Show Vehicles
-        </button>
+        </NavLink> 
       </div>
 
-      <div className="mt-4">
-      {isFormVisible && <VehicleForm vehicleType={selectedType} />}
-      {!isFormVisible && <AllVehicles vehicleType={selectedType}/>}
+      <div className="mt-4 overflow-y-auto"> 
+        <Outlet/>
       </div>
     </div>
   ); 

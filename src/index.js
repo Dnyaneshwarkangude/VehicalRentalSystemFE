@@ -13,6 +13,8 @@ import Setting from './components/Profile/Setting'
 import NewRideForm from './components/Dashboard/NewRideForm';
 import QRForm from './components/Dashboard/QRForm';
 import Vehicle from './components/Dashboard/Vehicles/Vehicles';
+import AllVehicles from './components/Dashboard/Vehicles/AllVehicles';
+import VehicleForm from './components/Dashboard/Vehicles/VehicleForm';
 import ForgotPassword from './components/Profile/ForgotPassword';
 import ErrorPage from './components/Pages/ErrorPage';
 import ServerError from './components/Pages/ServerError';
@@ -26,8 +28,7 @@ import Layout from './components/Profile/Layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements( 
-      < >
-         {/* <Route exact path='/' element={<Login/>} /> */}
+      < > 
          <Route exact path='/' element={<Layout children={<Login/>}/>} />
          <Route exact path='/forgotPassword' element={<Layout children={<ForgotPassword/>}/>}/>
          <Route exact path='/register' element={<Layout children={<Register/>}/>} />
@@ -40,7 +41,11 @@ const router = createBrowserRouter(
                   <Route path='newrideform' element={<NewRideForm/>}/>
                   <Route path='qrform' element={<QRForm/>}/>
                </Route>
-               <Route path='vehicles' element={<Vehicle/>}/>
+               <Route path='vehicles' element={<Vehicle/>}>
+                  <Route path='' element={<Navigate to={'all-vehicles'}/>} />
+                  <Route path='add-vehicle' element={<VehicleForm/>}/>
+                  <Route path='all-vehicles' element={<AllVehicles/>}/>
+               </Route>
                <Route path='profile/setting' element={<Setting/>}/>
          </Route>
 
