@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+/* Custom toast styles */
+.custom-toast-success {
+    background-color: #4CAF50; /* Tailwind's green-500 */
+    color: white;
+    border-radius: 0.375rem; /* Tailwind's rounded-md */
+}
+
+.custom-toast-error{
+    background-color: rgb(68, 47, 47);
+}
+
+  .custom-toast-body {
+    font-size: 0.875rem; /* Tailwind's text-sm */
+}
+  
+  .custom-toast-progress {
+    background: #66bb6a; /* Tailwind's green-400 */
+}

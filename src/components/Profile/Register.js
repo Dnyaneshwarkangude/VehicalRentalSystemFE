@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import ErrorPopup from "../Pages/ErrorPopup";
+import { toast } from "react-toastify";
 
 import hide from './assets/hide.png'
 import show from './assets/show.png' 
@@ -48,7 +49,12 @@ const Register = () => {
       .post(`${process.env.REACT_APP_BASE_URL}/users/register`, data)
       .then((response) => {
         console.log("User Register !");
-        alert("Registered successfully!");
+        // alert("Registered successfully!");
+        toast.success("User Registered Successfully!",{
+          className: "custom-toast-success",
+          bodyClassName: "custom-toast-body",
+          progressClassName: "custom-toast-progress",
+        })
         navigate("/");
       })
       .catch((error) => {

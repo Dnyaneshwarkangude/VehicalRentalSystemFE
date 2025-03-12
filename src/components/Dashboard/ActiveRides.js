@@ -2,28 +2,32 @@ import axios from "axios";
 import api from "../../auth/auth";
 import React, { useEffect, useState } from "react";
 import base_url from "../../api/bootapi";
+// import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from '@shadcn/ui';
 
 export default function ActiveRides() {
   const [rides, setRides] = useState([]);
   const [ride, setRide] = useState([]);
-  const [popupOpen, setPopupOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${base_url}/getActiveRides`)
+  // useEffect(async () => {
+  //   await api
+  //     .get(`${process.env.REACT_APP_BASE_URL}/rides/activeRide`)
   //     .then((response) => {
-  //       setRides(response.data);
+  //       console.log(response.data.data);
+  //       const data = response.data.data
+  //       setRides(data);
+  //       // console.log(response.data[0]);
   //     })
   //     .catch((error) => {
   //       console.log("Error : ", error);
   //     });
   // }, []);
 
-  const showRide = async (aadhar) => {
+  const getRideDetails = async () =>{
     await api
       .get(`${process.env.REACT_APP_BASE_URL}/rides/activeRide`)
       .then((response) => {
-        console.log(response);
+        console.log(response.data.data);
         const data = response.data.data
         setRides(data);
         // console.log(response.data[0]);
@@ -31,13 +35,18 @@ export default function ActiveRides() {
       .catch((error) => {
         console.log("Error : ", error);
       });
-    // setPopupOpen(true);
+  }
+
+  // useEffect( getRideDetails ,[]);
+  getRideDetails();
+
+  const showRide =  (aadhar) => {
+    const matchRide = rides.find((ride) => ride.aadhar === aadhar);
+    setRide(matchRide)
+    // console.log(ride)
+
   };
-
-  useEffect(() =>{
-    showRide();
-  }, [])
-
+ 
   return (
     // <div className="">
     //   <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -216,13 +225,13 @@ export default function ActiveRides() {
             {`${ride.firstName} ${ride.lastName}`}
           </td>
           <td className="px-6 py-3">
-            {ride.license}
+            {ride.drivingLicense}
           </td>
           <td className="px-6 py-3">
             {ride.aadhar}
           </td>
           <td className="px-6 py-3">
-            {ride.mob}
+            {ride.mobile}
           </td>
           <td className="px-6 py-3">
             {ride.vehicleNumber}
@@ -231,7 +240,7 @@ export default function ActiveRides() {
             {ride.vehicleType}
           </td>
           <td className="px-6 py-3">
-            {ride.date}
+            {ride.createdAt}
           </td>
           {/* <td>
             <button onClick={() => alert('Show data')}>
@@ -242,7 +251,7 @@ export default function ActiveRides() {
       ))}
     </tbody>
   </table>
-  {popupOpen && <PopupWindow ride={ride} setPopupOpen={setPopupOpen} />}
+  {/* {popupOpen && <PopupWindow ride={ride} setPopupOpen={setPopupOpen} />} */}
 </div>
 
   );
@@ -252,7 +261,7 @@ export default function ActiveRides() {
 
 // Popup window component
 
-const PopupWindow = ({ride,setPopupOpen}) =>{
+const PopupWindow = ({ride,setOpen}) =>{
   return(
     <div className="absolute top-[130px] h-[450px] w-[600px] ml-[260px] bg-gray-100 rounded-lg shadow-customShadow flex justify-items-center">
           
@@ -267,7 +276,7 @@ const PopupWindow = ({ride,setPopupOpen}) =>{
           <button
             type="button"
             className="bg-red-500 hover:bg-red-600 rounded-md w-[30px] text-white absolute end-3 top-3"
-            onClick={() => setPopupOpen(false)}
+            onClick={() => setOpen(false)}
           >
             X
           </button>

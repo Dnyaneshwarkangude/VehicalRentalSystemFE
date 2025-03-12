@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../../store/userSlice";
 import { updateAccessToken } from "../../store/authSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 import hide from './assets/hide.png'
 import show from './assets/show.png'
@@ -35,33 +36,40 @@ const Login = () => {
   const onSubmit = async (data) => {
     await axios
       .post(`${process.env.REACT_APP_BASE_URL}/users/login`, data)
-      .then((res) => {
-        // console.log(res.data);
+      .then((res) => { 
         return res?.data;
       })
-      .then((res) => {
-        // console.log(res);
+      .then((res) => { 
         if (res?.data.user != null && res?.success) {
           const userData = res.data.user
-          const accessToken = res.data.accessToken
-          console.log(userData)
+          const accessToken = res.data.accessToken 
           dispatch(login({userData}))
           dispatch(updateAccessToken({accessToken}))
+          // console.log("login response : ",res)
+          toast.success(res.message,{
+            className: "custom-toast-success",
+            bodyClassName: "custom-toast-body",
+            progressClassName: "custom-toast-progress",
+          })
           navigate("/dashboard");
         } else {
-          alert(res?.message);
+          toast(res?.message);
         }
       })
       .catch((error) => {
         console.log("ERROR: ", error);
+        toast.error("User does not exists!",{
+          className: "custom-toast-error",
+          bodyClassName: "custom-toast-body",
+          progressClassName: "custom-toast-progress"
+        })
       })
       .finally(() => {
         reset();
       });
   };
 
-  return (
-    // <div className="w-screen h-screen bg-gray-300 flex items-center justify-center">
+  return ( 
     <div className="w-screen h-screen bg-gray-30 flex items-center justify-center">
       <div className="px-16 py-12 border-[3px] rounded-[20px] bg-gray-200 shadow-customShadow1 dark:border-none dark:shadow-customDarkShadow dark:bg-customBoxColor dark:text-slate-300">
         <div className="flex justify-center">
@@ -148,10 +156,11 @@ const Login = () => {
               </span>
             </Link>
           </h3>
-        </div>
-        <hr className="mt-1 h-0.5 bg-gray-400"></hr>
-        <div className="flex items-center justify-center">
-          <p>or </p>
+        </div> 
+        <div className="flex justify-center items-center">
+          <hr className="mt-1 h-0.5 bg-gray-400 w-[155px]"></hr>
+          <p className="px-3">or </p>
+          <hr className="mt-1 h-0.5 bg-gray-400 w-[155px]"></hr>
         </div>
         <div
           id="third-party-auth"

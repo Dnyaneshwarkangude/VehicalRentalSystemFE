@@ -26,6 +26,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import ProtectedRoute from './components/Pages/ProtectedRoute'
 import Layout from './components/Profile/Layout';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const router = createBrowserRouter(
   createRoutesFromElements( 
       < > 
@@ -59,6 +62,7 @@ root.render(
   <Provider store={store} >
       <PersistGate loading={null} persistor={persistor}>
          <RouterProvider router={router}/>
+         <ToastContainer/>
       </PersistGate>
   </Provider> 
 );

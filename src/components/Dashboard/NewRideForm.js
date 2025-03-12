@@ -8,8 +8,8 @@ const NewRideForm = () =>{
       firstName: "",
       lastName: "",
       aadhar: "",
-      license: "",
-      mob: "",
+      drivingLicense: "",
+      mobile: "",
       email: "",
       vehicleType: "",
       vehicleNumber: "",
@@ -24,7 +24,7 @@ const NewRideForm = () =>{
     // console.log('form submitted : ',data);
 
     axios
-      .post(`${base_url}/activeRide`, data)
+      .post(`${base_url}/rides/newRide`, data)
       .then((response) => {
         alert("Ride saved");
       })
@@ -119,26 +119,26 @@ const NewRideForm = () =>{
         </div>
         <div className="mb-5 mt-4 ml-5 w-[200px]">
           <label
-            for="License"
+            for="drivingLicense"
             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             License Number
           </label>
           <input
             type="text"
-            id="License"
+            id="drivingLicense"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="MH1420110012345"
             required
-            {...register("license", {
+            {...register("drivingLicense", {
               pattern: {
                 value: /^[A-Z]{2}\d{13}$/,
-                message: "*Invalid license number",
+                message: "*Invalid drivingLicense number",
               },
             })}
           />
-          {errors.license && (
-            <p className="text-red-500 text-[14px]">{errors.license.message}</p>
+          {errors.drivingLicense && (
+            <p className="text-red-500 text-[14px]">{errors.drivingLicense.message}</p>
           )}
         </div>
       </div>
@@ -156,15 +156,15 @@ const NewRideForm = () =>{
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder=""
           required
-          {...register("mob", {
+          {...register("mobile", {
             pattern: {
               value: /^[0-9]{10}$/,
               message: "Invalid phone number",
             },
           })}
         />
-        {errors.mob && (
-          <p className="text-red-500 text-[14px]">{errors.mob.message}</p>
+        {errors.mobile && (
+          <p className="text-red-500 text-[14px]">{errors.mobile.message}</p>
         )}
       </div>
 
